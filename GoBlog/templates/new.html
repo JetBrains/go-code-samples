@@ -1,0 +1,25 @@
+{{define "title"}}Create new article{{end}}
+{{define "scripts"}}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '#mytextarea',
+    plugins: 'image',
+    toolbar: 'undo redo | blocks | image | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+    images_upload_url: "/upload",
+    relative_urls : false,
+    remove_script_host : false,
+    convert_urls : true,
+  });
+</script>
+{{end}}
+{{define "body"}}
+<form method="post" action="/articles">
+  <input type="text" name="title" placeholder="Enter the title">
+  <textarea id="mytextarea" name="content"></textarea>
+  <button id="submit" type="submit">Create</button>
+</form>
+{{end}}

@@ -1,0 +1,15 @@
+{{define "title"}}{{.Title}}{{end}}
+{{define "scripts"}}{{end}}
+{{define "body"}}
+<h1>{{.Title}} </h1>
+<div>
+  {{.Content}}
+</div>
+<div>
+  <a href="/articles/{{.ID}}/edit">Edit</a>
+  <form action="/articles/{{.ID}}" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete</button>
+  </form>
+</div>
+{{end}}

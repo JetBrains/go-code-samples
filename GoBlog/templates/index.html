@@ -1,0 +1,16 @@
+{{define "title"}}All articles{{end}}
+{{define "scripts"}}{{end}}
+{{define "body"}}
+{{if eq (len .) 0}}
+Nothing to see here
+{{end}}
+{{range .}}
+<div>
+    <a href="/articles/{{.ID}}">{{.Title}}</a>
+</div>
+{{end}}
+<p>
+    <a href="/articles">Create new article</a>
+
+</p>
+{{end}}
